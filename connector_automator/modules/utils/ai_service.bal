@@ -6,9 +6,10 @@ ai:ModelProvider? anthropicModel = ();
 configurable string apiKey = ?;
 
 public function initAIService(boolean quietMode = false) returns error? {
+    // Alternative if the constant doesn't exist:
     ai:ModelProvider|error modelProvider = new anthropic:ModelProvider(
         apiKey,
-        anthropic:CLAUDE_SONNET_4_20250514,
+        "claude-opus-4-5-20251101",  // Direct string
         maxTokens = 64000,
         timeout = 400
     );
